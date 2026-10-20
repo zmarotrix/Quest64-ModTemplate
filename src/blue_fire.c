@@ -22,8 +22,8 @@ static int option_on(const char* key) {
     return recomp_get_config_u32(key) != 0;
 }
 
-// func_80000FE8 copies the spell tables from ROM into RAM at boot, so edit them right after it returns.
-RECOMP_HOOK_RETURN("func_80000FE8") void blue_fire_on_boot_data_loaded(void) {
+// boot_load_static_data copies the spell tables from ROM into RAM at boot, so edit them right after it returns.
+RECOMP_HOOK_RETURN("boot_load_static_data") void blue_fire_on_boot_data_loaded(void) {
     SpellDefinition* def = q64_spell_def(Q64_SCHOOL_FIRE, 0);
     SpellAnimDefinition* anim = q64_spell_anim(Q64_SCHOOL_FIRE, 0);
 
