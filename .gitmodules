@@ -1,0 +1,3 @@
+[submodule "Quest64Syms"]
+	path = Quest64Syms
+	url = https://github.com/Rainchus/Quest64Syms

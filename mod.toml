@@ -1,0 +1,89 @@
+# Config file for a Quest 64: Recompiled mod.
+
+# Fields that end up in the mod's manifest.
+[manifest]
+
+# Unique ID of this mod. Pick something long enough that it'll never be the same as any other mod.
+id = "q64_blue_fire_example"
+
+version = "0.2.0"
+
+# Shown in the mod menu.
+display_name = "Blue Fire (example)"
+
+description = """
+Example mod for Quest 64: Recompiled. Turns Fire Ball Lv1 into BLUE FIRE: \
+a recolored triple shot that does 300 base damage instead of 240."""
+
+short_description = "Fire Ball Lv1 becomes a blue triple shot."
+
+authors = [ "zmarotrix" ]
+
+# ID of the target recomp game.
+game_id = "qs64"
+
+# Minimum version of Quest 64: Recompiled that this mod can run on.
+minimum_recomp_version = "1.0.2"
+
+dependencies = [ ]
+optional_dependencies = [ ]
+native_libraries = [ ]
+
+# Inputs to the mod tool.
+[inputs]
+
+elf_path = "build/mod.elf"
+
+mod_filename = "q64_blue_fire_example"
+
+# Reference symbol files, from the Quest64Syms submodule.
+func_reference_syms_file = "Quest64Syms/dump.toml"
+data_reference_syms_files = [ "Quest64Syms/data_dump.toml" ]
+
+additional_files = [ ]
+
+# Options shown in the mod menu. They're read when the game boots, so restart the game after changing them.
+
+[[manifest.config_options]]
+id = "more_damage"
+name = "More damage"
+description = "Raise Fire Ball Lv1's base damage from 240 to 300."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "triple_shot"
+name = "Triple shot"
+description = "Fire 3 shots instead of 1."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "recolor"
+name = "Recolor"
+description = "Use the color number below instead of the original (8)."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "color"
+name = "Color"
+description = "Palette number for the fireball. The original is 8."
+type = "Number"
+min = 1
+max = 17
+step = 1
+precision = 0
+percent = false
+default = 4
+
+[[manifest.config_options]]
+id = "rename"
+name = "Rename"
+description = "Rename the spell to BLUE FIRE."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
